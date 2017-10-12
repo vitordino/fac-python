@@ -11,7 +11,7 @@
     "deploy": "npm run compile && harp-scripts surge.sh"
   },
   "author": "Vitor Dino <vitor@kunstdesign.com.br>",
-  "license": "AGPL-3.0+",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "character-parser": "^2.2.0",
