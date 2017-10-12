@@ -1,0 +1,32 @@
+mixin nav()
+	include /_frontmatter/index
+	-const frontmatter = getFrontmatter(current.path, public)
+	-const modules = _.filter(frontmatter.public.modules, (value, key) => key[0] !== '_')
+	-const currentLink = frontmatter.current.__link
+
+	header
+		a.logo(href="/")= site.title
+			div= site.description
+		nav(role='main')
+			for module in modules
+				-const linkClass = currentLink === module.__link ? 'active' : ''
+				a(class=linkClass href=module.__link)
+					span= module.name
+
+		ul.social
+			if site.email
+				li: a.email(href='mailto:#{site.email}'): i(data-feather='at-sign')
+			if site.facebook
+				li: a.facebook(href='http://fb.com/#{site.facebook}'): i(data-feather='facebook')
+			if site.instagram
+				li: a.instagram(href='http://instagram.com/#{site.instagram}'): i(data-feather='instagram')
+			if site.twitter
+				li: a.twitter(href='http://twitter.com/#{site.twitter}'): i(data-feather='twitter')
+			if site.github
+				li: a.github(href='http://github.com/#{site.github}'): i(data-feather='github')
+			if site.gitlab
+				li: a.gitlab(href='http://gitlab.com/#{site.gitlab}'): i(data-feather='gitlab')
+			if site.codepen
+				li: a.codepen(href='http://codepen.io/#{site.codepen}'): i(data-feather='codepen')
+			if site.whatsapp
+				li: a.whatsapp(href='https://api.whatsapp.com/send?phone=#{site.whatsapp}'): i(data-feather='zap')

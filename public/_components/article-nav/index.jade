@@ -1,0 +1,26 @@
+mixin article-nav-link(article, title)
+	div
+		if article
+			a(href=article.__link)&attributes(attributes)
+				h3= title
+				if article.module
+					span.module= article.module
+				if article.number
+					span.number= article.number
+				if article.title
+					span.title= article.title || '<Untitled>'
+
+mixin article-nav({public, current} = frontmatter)
+	-
+		const omitHidden = fp.filter(article => article.published !== false)
+		const sortOrder  = fp.sortBy('order')
+		const paginate   = fp.flow([omitHidden, sortOrder])
+		const articles   = paginate(public.articles)
+	-
+
+	each article, i in articles
+		if article.__filename === current.__filename
+			if articles[i - 1] || articles[i + 1]
+				.article-nav
+					+article-nav-link(articles[i - 1], 'Anterior').prev
+					+article-nav-link(articles[i + 1], 'Próximo').next

@@ -1,0 +1,12 @@
+mixin generic-header({name, description, __link, __contents, module, number} = {})
+	if __link
+		a.generic-header(href=__link)&attributes(attributes)
+			.info
+				if module
+					h5.module= module
+				if number
+					h5.number= number
+				if name
+					h5.name= name
+				if description
+					h6.description= description

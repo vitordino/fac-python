@@ -1,0 +1,20 @@
+.article-card
+	background-color: $color-header;
+	color: white
+	padding: 2rem 1.5rem
+	display: flex;
+	position: relative;
+	border-radius: 4px
+	& + .article-card
+		margin-top: 2rem
+	.module, .number
+		font-family: $font-mono
+		font-weight: 400
+		font-size: 0.9rem
+		:after
+			content: '.'
+	.number
+		margin-right: 0.5rem
+	.title
+		font-weight: 100
+	// .description

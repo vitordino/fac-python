@@ -1,0 +1,10 @@
+mixin article-card(article)
+	a.article-card(href=article.__link)&attributes(attributes)
+		if article.module
+			.module= article.module
+		if article.number
+			.number= article.number
+		if article.title
+			h2.title= article.title
+		if article.description
+			.description= article.description

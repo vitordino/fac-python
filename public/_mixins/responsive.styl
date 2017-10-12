@@ -1,0 +1,37 @@
+breakpoints = {
+	xs: 0,
+	sm: 480px,
+	md: 768px,
+	lg: 992px,
+	xg: 1270px,
+}
+
+above(breakpoint)
+	if breakpoints[breakpoint] > 0
+		@media only screen and (min-width: breakpoints[breakpoint])
+			{block}
+	else
+		{block}
+
+below(breakpoint)
+	@media only screen and (max-width: (breakpoints[breakpoint] - 1px))
+		if block
+			{block}
+
+between(breakpoint_1, breakpoint_2)
+	@media only screen and (min-width: breakpoints[breakpoint_1]) and (max-width: (breakpoints[breakpoint_2] - 1px))
+		if block
+			{block}
+
+.container
+	clearfix()
+	margin-left: auto
+	margin-right: auto
+	display: block
+
+// clearfix and center
+clearfix()
+	&::after
+		content: ''
+		display: table
+		clear: both

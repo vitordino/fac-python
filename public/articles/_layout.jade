@@ -1,0 +1,38 @@
+include /_components/index
+include /_frontmatter/index
+-const frontmatter = getFrontmatter(current.path, public)
+-
+	const modules = frontmatter.public.modules
+	const articlemodulesNames = fp.castArray(frontmatter.current.module)
+	const articlemodules = _.map(articlemodulesNames, moduleName => {
+		const module = frontmatter.public.modules[moduleName]
+		if(moduleName && !module){
+			throw new Error(`module "${user}" not found in public/modules!`)
+		}
+		return module
+	})
+-
+doctype
+
+html(lang='pt')
+	head
+		title #{site.title} — #{frontmatter.current.title}
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(href='/main.css', rel='stylesheet')
+		script(src='https://unpkg.com/feather-icons/dist/feather.min.js')
+	body.article-page
+		+nav()
+
+		article
+			+article-meta(frontmatter.current)
+			.container
+				.content.language-python
+					!= yield
+
+				+article-nav(frontmatter)
+
+		+footer()
+		script.
+			feather.replace({'stroke-width': 2.25 })
+		script(src='/prism.js')

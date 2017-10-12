@@ -1,0 +1,25 @@
+{
+  "name": "fac-python",
+  "version": "1.0.0",
+  "description": "Ensino de Python para comunicadores",
+  "scripts": {
+    "start": "harp-scripts start",
+    "watch": "harp-scripts watch",
+    "dev": "harp-scripts watch",
+    "test": "harp-scripts test",
+    "compile": "harp-scripts compile",
+    "deploy": "npm run compile && harp-scripts surge.sh"
+  },
+  "author": "Vitor Dino <vitor@kunstdesign.com.br>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "character-parser": "^2.2.0",
+    "fs-readdir-recursive": "^1.0.0",
+    "harp": "^0.24.0",
+    "harp-scripts": "^0.1.0",
+    "lodash": "^4.17.4",
+    "pug-lexer": "^3.1.0",
+    "pug-parser": "^4.0.0"
+  }
+}

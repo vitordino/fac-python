@@ -1,0 +1,16 @@
+{
+	"globals": {
+		"site": {
+			"title": "FAC Python",
+			"description": "Ensino de Python para comunicadores",
+			"email": "vitor@kunstdesign.com.br",
+			"facebook": null,
+			"instagram": null,
+			"twitter": null,
+			"whatsapp": null,
+			"github": "vitordino/fac-python",
+			"gitlab": null,
+			"codepen": null
+		}
+	}
+}

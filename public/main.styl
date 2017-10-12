@@ -1,0 +1,56 @@
+@import "_mixins"
+@import "_components"
+
+body
+	box-sizing: border-box
+	font-family: $font-sans
+	font-size: $font-size
+	line-height: $line-height
+	font-weight: 300
+	text-rendering: optimizeLegibility
+	-webkit-font-smoothing: antialiased
+	font-smoothing: antialised
+	text-rendering: optimizeLegibility
+	color: $color-font
+	background-color: $color-body
+	font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 0, "lnum" 1, "dlig" 1, "zero" 1
+	hyphens: auto
+
+a
+	text-decoration: none
+
+h3
+	font-weight: bold
+	text-transform: uppercase
+	letter-spacing: 0.25px
+	font-size: 15px
+	line-height: 2rem
+	margin-bottom: 1.5rem
+
+p + p
+	margin-top: 1.25rem
+
+main
+	padding-top: 5rem
+	padding-bottom: 4rem
+	+above(md)
+		padding-top: 0
+
+strong
+	font-weight: 500
+
+article
+	overflow: hidden;
+	width: 100%
+
+.container
+	// max-width: 56rem
+	max-width: 42rem
+	width: 90%
+	+above(md)
+		width: 80%
+	.article-page &
+		max-width: 42rem
+
+.mono
+	font-family: $font-mono

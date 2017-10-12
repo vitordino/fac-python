@@ -1,0 +1,21 @@
+mixin article-meta(article)
+	- const {title, module, number} = article
+	- const {__contents, __link} = modules
+
+	.article-meta
+		.container
+			if module
+				a.module(href=`/modules/${module}`)
+					span Módulo —
+					<span> </span>
+					span.mono= module
+					<span> </span>
+
+			if number
+				.number
+					span Número —
+					<span> </span>
+					span.mono= number
+
+			if title
+				.title= title

@@ -1,0 +1,14 @@
+include /_components/index
+include /_frontmatter/index
+-const frontmatter = getFrontmatter(current.path, public)
+-const modules = _.filter(frontmatter.public.modules, (value, key) => key[0] !== '_')
+
+main.container
+	//- +site-header()
+	.modules-list
+		for module, key in modules
+			-const slug = module.__source
+			-const moduleArticles = fp.filter({module: slug})(frontmatter.public.articles)
+			+generic-header(module)
+			for article in moduleArticles
+				+article-card(article)

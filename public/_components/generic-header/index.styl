@@ -1,0 +1,47 @@
+.generic-header
+	display: flex;
+	padding 2rem 0 1rem
+	margin-bottom: 2rem
+	border-top: 1px solid rgba(0,0,0,0.1)
+	color: currentColor
+	line-height: 2rem
+	margin-top: 8rem
+	&.sticky
+		z-index: 1
+		top: -1rem
+		background: $color-body
+		position: sticky
+	&.fixed
+		top 0
+		z-index: -1
+		top: 0
+		background: $color-body
+		position: fixed
+		width: 100%
+	:hover, :active, :focus
+		color: $color-accent
+		.avatar
+			background-color: $color-accent
+		img
+			opacity: 0.3
+			filter: grayscale(0.2) brightness(1.2)
+	:first-child
+		margin-top: 0
+	.name
+		font-weight: 500
+	.description
+		color: rgba(0,0,0,0.5)
+	.avatar
+		width: 2rem
+		height: 2rem
+		margin-right: 0.75rem
+		overflow: hidden;
+		border-radius: 1rem
+		img
+			width: 100%
+			width: 100%
+	:first-of-type
+		border: none
+
+.home .generic-header .description
+	display: none
