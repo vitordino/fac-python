@@ -2,19 +2,23 @@
 	background-color: $color-header
 	color: white
 	padding: 2rem 1.5rem
-	display: flex
+	width: 100%
+	display: block
+	display: flex;
 	position: relative
 	border-radius: 4px
+	align-items: baseline;
+	*
+		display: inline;
+		display: flex;
 	& + .article-card
 		margin-top: 2rem
 	.module, .number
-		font-family: $font-mono
-		font-weight: 400
 		font-size: 0.9rem
+		letter-spacing: 1px
+		margin-right: 0.25rem
+		font-weight: 500
+		opacity: 0.88
 		:after
+			margin-left: 2px
 			content: '.'
-	.number
-		margin-right: 0.5rem
-	.title
-		font-weight: 100
-	// .description

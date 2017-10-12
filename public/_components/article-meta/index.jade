@@ -8,14 +8,14 @@ mixin article-meta(article)
 				a.module(href=`/modules/${module}`)
 					span Módulo —
 					<span> </span>
-					span.mono= module
+					span= module
 					<span> </span>
 
 			if number
 				.number
 					span Número —
 					<span> </span>
-					span.mono= number
+					span= number
 
 			if title
 				.title= title
