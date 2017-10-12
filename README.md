@@ -2,7 +2,7 @@
 > Ensino de Python para comunicadores
 
 ### to run locally
-1. install node
+1. install [`node.js`](https://nodejs.org/en/)
 2. `npm run dev`
 
 ### to deploy
