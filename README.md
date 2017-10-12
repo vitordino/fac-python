@@ -3,7 +3,8 @@
 
 ### to run locally
 1. install [`node.js`](https://nodejs.org/en/)
-2. `npm run dev`
+2. `npm i`
+3. `npm run dev`
 
 ### to deploy
 just push to this repo's `master` branch
