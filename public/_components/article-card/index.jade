@@ -1,4 +1,5 @@
-mixin article-card(article)
+mixin article-card(meta)
+	-const article = withNumbers(meta)
 	a.article-card(href=article.__link)&attributes(attributes)
 		if article.module
 			.module= article.module

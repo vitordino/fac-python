@@ -1,12 +1,30 @@
-mixin generic-header({name, description, __link, __contents, module, number} = {})
-	if __link
-		a.generic-header(href=__link)&attributes(attributes)
+mixin generic-header__title({module, number, title})
+	if module && number && title
+		h5.title=`${module}.${number} — ${title}`
+	else if module && title
+		h5.title=`${module} — ${title}`
+	else if title
+		h5.title=title
+
+mixin generic-header(meta)
+	-
+		const getNumber = fp.flow([parseInt, fp.padCharsStart('0', 2)])
+		const getNumbersFromLink = fp.flow([
+			fp.split('/'),
+			fp.map(getNumber),
+			fp.filter(n => n !== 'NaN'),
+			([module, number]) => ({module, number}),
+		])
+		const withNumbers = (meta = {}) => (
+			Object.assign(getNumbersFromLink(meta.__link), meta)
+		)
+	-
+
+	-const object = withNumbers(meta)
+	if object.__link
+		a.generic-header(href=object.__link)&attributes(attributes)
 			.info
-				if module
-					h5.module= module
-				if number
-					h5.number= number
-				if name
-					h5.name= name
-				if description
-					h6.description= description
+				if object.title
+					+generic-header__title(object)
+				if object.description
+					h6.description=object.description

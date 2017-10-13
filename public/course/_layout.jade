@@ -1,0 +1,49 @@
+include /_imports
+
+-const {course} = frontmatter.public
+-const pageTypes = ['course', 'module', 'article']
+-const pageTypeIndex = frontmatter.current.__link.split('/').length - 3
+-const pageType = pageTypes[pageTypeIndex]
+-const subtitle = frontmatter.current.title || site.description
+
+doctype
+html(lang='pt')
+	head
+		title=`${site.title} — ${subtitle}`
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(href='/main.css', rel='stylesheet')
+		script(src='https://unpkg.com/feather-icons/dist/feather.min.js')
+		link(href='https://rsms.me/inter/inter-ui.css', rel='stylesheet')
+		link(href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet')
+	body
+		+nav(frontmatter)
+		case pageType
+			when 'course': main.container
+				for module in getSubPages(course)
+					-const moduleSlug = module.__source
+					-const moduleArticles = getSubPages(course[moduleSlug])
+					+generic-header(module)
+					for article in moduleArticles
+						+article-card(article)
+
+			when 'module': main.container
+				-const module = course[frontmatter.current.__source]
+				+generic-header(module)
+				.articles-list
+					for article in getSubPages(module)
+						+article-card(article)
+
+			when 'article': article
+				+article-meta(frontmatter.current)
+				.container
+					.content.language-python!=(yield)
+					+article-nav(frontmatter)
+
+		+footer()
+
+		script.
+			feather.replace()
+
+		if pageType === 'article'
+			script(src='/prism.js')

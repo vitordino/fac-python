@@ -1,0 +1,24 @@
+-
+	// [NODE_MODULES]
+	const require = module => process.mainModule.require(module)
+	const fp = require('lodash/fp')
+-
+	// [COMMONS]
+	const getSubPages = fp.filter(value => value.__link)
+	const getNumber = fp.flow([parseInt, fp.padCharsStart('0', 2)])
+
+	const getNumbersFromLink = fp.flow([
+		fp.split('/'),
+		fp.map(getNumber),
+		fp.filter(n => n !== 'NaN'),
+		([module, number]) => ({module, number}),
+	])
+	const withNumbers = (meta = {}) => (
+		Object.assign(getNumbersFromLink(meta.__link), meta)
+	)
+-
+
+include _frontmatter/index
+include _components/index
+
+-const frontmatter = getFrontmatter(current.path, public)

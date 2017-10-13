@@ -1,14 +1,8 @@
-include /_components/index
-include /_frontmatter/index
--const frontmatter = getFrontmatter(current.path, public)
--const modules = _.filter(frontmatter.public.modules, (value, key) => key[0] !== '_')
+include /_imports
+-const {course} = frontmatter.public
 
 main.container
-	//- +site-header()
-
-	for module, key in modules
-		-const slug = module.__source
-		-const moduleArticles = fp.filter({module: slug})(frontmatter.public.articles)
+	for module in getSubPages(course)
 		+generic-header(module).sticky
-		for article in moduleArticles
+		for article in getSubPages(module)
 			+article-card(article)
