@@ -1,7 +1,12 @@
-mixin nav()
-	include /_frontmatter/index
-	-const frontmatter = getFrontmatter(current.path, public)
-	-const modules = _.filter(frontmatter.public.modules, (value, key) => key[0] !== '_')
+mixin nav__link(meta, currentLink = '')
+	-const {__link, module, title} = withNumbers(meta)
+	-const linkClass = currentLink.includes(__link) ? 'active' : ''
+	a(href=__link, class=linkClass)
+		span=`${module} — ${title}`
+
+mixin nav(frontmatter)
+	-const {course} = frontmatter.public
+	-const modules = getSubPages(course)
 	-const currentLink = frontmatter.current.__link
 
 	header
@@ -9,9 +14,7 @@ mixin nav()
 			div= site.description
 		nav(role='main')
 			for module in modules
-				-const linkClass = currentLink === module.__link ? 'active' : ''
-				a(class=linkClass href=module.__link)
-					span= module.name
+				+nav__link(module, currentLink)
 
 		ul.social
 			if site.email

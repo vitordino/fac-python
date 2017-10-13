@@ -1,26 +1,28 @@
 mixin article-nav-link(article, title)
-	div
-		if article
-			a(href=article.__link)&attributes(attributes)
-				h3= title
-				if article.module
-					span.module= article.module
-				if article.number
-					span.number= article.number
-				if article.title
-					span.title= article.title || '<Untitled>'
+	div: if article.__link
+		a(href=article.__link)&attributes(attributes)
+			h3= title
+			span.number=`${article.module}.${article.number}`
+			if article.title
+				span.title= article.title || '<Untitled>'
 
-mixin article-nav({public, current} = frontmatter)
+mixin article-nav({public, current} = {})
 	-
-		const omitHidden = fp.filter(article => article.published !== false)
-		const sortOrder  = fp.sortBy('order')
-		const paginate   = fp.flow([omitHidden, sortOrder])
-		const articles   = paginate(public.articles)
+		const sortOrder   = fp.sortBy('__link')
+		const matches = regex => str => regex.test(str)
+		const isPageKey   = ([key]) => key.split('/').every(matches(/^\d/))
+		const mergeParent = ([parent, objects]) => fp.mapKeys(key=> parent + '/' + key)(objects)
+		const paginate = fp.flow([
+			fp.toPairs, fp.map(mergeParent), fp.spread(fp.assign),
+			fp.toPairs, fp.filter(isPageKey), a=>a.sort(), fp.map(([key, value])=>value),
+		])
+		const articles = paginate(public.course)
+		console.log(fp.map('__link', articles))
 	-
 
 	each article, i in articles
 		if article.__filename === current.__filename
-			if articles[i - 1] || articles[i + 1]
+			if articles[i-1] || articles[i+1]
 				.article-nav
-					+article-nav-link(articles[i - 1], 'Anterior').prev
-					+article-nav-link(articles[i + 1], 'Próximo').next
+					+article-nav-link(withNumbers(articles[i-1]), 'Anterior').prev
+					+article-nav-link(withNumbers(articles[i+1]), 'Próximo').next

@@ -1,7 +1,6 @@
-include /_components/index
+include /_imports
 
 doctype
-
 html(lang='pt')
 	head
 		title #{site.title} – #{site.description}
@@ -11,7 +10,7 @@ html(lang='pt')
 		link(href='https://rsms.me/inter/inter-ui.css', rel='stylesheet')
 		link(href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet')
 	body.home
-		+nav()
+		+nav(frontmatter)
 		!= yield
 
 		+footer()
