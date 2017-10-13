@@ -5,3 +5,8 @@ mixin youtube(id)
 mixin vimeo(id)
 	.video-container
 		iframe.video(src="https://player.vimeo.com/video/#{id}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
+
+mixin code({language="python"}={})
+	pre(class=`language-${language}`)
+		code
+			block
