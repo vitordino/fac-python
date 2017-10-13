@@ -17,7 +17,6 @@ mixin article-nav({public, current} = {})
 			fp.toPairs, fp.filter(isPageKey), a=>a.sort(), fp.map(([key, value])=>value),
 		])
 		const articles = paginate(public.course)
-		console.log(fp.map('__link', articles))
 	-
 
 	each article, i in articles
