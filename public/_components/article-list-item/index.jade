@@ -1,0 +1,11 @@
+mixin article-list-item(meta)
+	-const article = withNumbers(meta)
+	a.article-list-item(href=article.__link)&attributes(attributes)
+		h2
+			if article.number
+				//- span.number!= [article.module, article.number].join('.') + '.&nbsp;'
+				span.number!= article.number + '.&nbsp;'
+			if article.title
+				span.title= article.title
+			//- if article.description
+				.description= article.description

@@ -1,0 +1,30 @@
+mixin article-list__title({module, number, title})
+	if module && number && title
+		h5.title=`${module}.${number} — ${title}`
+	else if module && title
+		h5.title=`${module} — ${title}`
+	else if title
+		h5.title=title
+
+mixin article-list(meta)
+	-
+		const getNumber = fp.flow([parseInt, fp.padCharsStart('0', 2)])
+		const getNumbersFromLink = fp.flow([
+			fp.split('/'),
+			fp.map(getNumber),
+			fp.filter(n => n !== 'NaN'),
+			([module, number]) => ({module, number}),
+		])
+		const withNumbers = (meta = {}) => (
+			Object.assign(getNumbersFromLink(meta.__link), meta)
+		)
+	-
+
+	-const object = withNumbers(meta)
+	if object.__link
+		a.article-list(href=object.__link)&attributes(attributes)
+			.info
+				if object.title
+					+article-list__title(object)
+				if object.description
+					h6.description=object.description

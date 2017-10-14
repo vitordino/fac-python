@@ -3,6 +3,6 @@ include /_imports
 
 main.container
 	for module in getSubPages(course)
-		+generic-header(module).sticky
+		+article-list(module).sticky
 		for article in getSubPages(module)
-			+article-card(article)
+			+article-list-item(article)
