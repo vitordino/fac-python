@@ -1,0 +1,52 @@
+.intro
+	padding 2rem 0 0
+	+above(md)
+		padding 2rem 0
+		color: white
+		background-color: $color-header
+		background-image: url(/assets/python-bg.svg)
+		background-repeat: no-repeat;
+		background-position: top right;
+	.info
+		margin-bottom: 2rem
+		hyphens: none;
+		+above(md)
+			margin-bottom: 4rem
+			width: 80%
+		+above(lg)
+			width: 55%
+	h1
+		font-size: 2rem
+		line-height: (1.25*$line-height)
+		margin-bottom: 1rem
+	.brands
+		+above(md)
+			margin-bottom: 2rem
+		.brand
+			color: currentColor
+			display: inline-block;
+			height: 21px
+			+above(md)
+				height: 25px
+			svg
+				height: 100%
+				width: auto;
+			:after
+				content: ''
+				width: 2px
+				opacity: 0.8
+				position: relative;
+				display: inline-block;
+				background: currentColor
+				top 1px
+				vertical-align: top;
+				height: 20px
+				margin-left: 1rem
+				margin-right: 1rem
+				+above(md)
+					height: 24px
+					margin-left: 2.15rem
+					margin-right: 2rem
+			:last-child
+				:after
+					display: none
