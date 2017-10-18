@@ -19,6 +19,8 @@ mixin nav(frontmatter)
 		ul.social
 			if site.email
 				li: a.email(href='mailto:#{site.email}'): i(data-feather='at-sign')
+			if site.slack
+				li: a.slack(href='http://#{site.slack}.slack.com'): i(data-feather='slack')
 			if site.facebook
 				li: a.facebook(href='http://fb.com/#{site.facebook}'): i(data-feather='facebook')
 			if site.instagram

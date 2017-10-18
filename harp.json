@@ -3,7 +3,8 @@
 		"site": {
 			"title": "FAC Python",
 			"description": "Ensino de Python para comunicadores",
-			"email": "vitor@kunstdesign.com.br",
+			"email": null,
+			"slack": "procomfac",
 			"facebook": null,
 			"instagram": null,
 			"twitter": null,
