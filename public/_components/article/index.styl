@@ -62,6 +62,14 @@
 		+above(lg)
 			margin-left: -1.25em
 
+	hr
+		border: 1px dashed alpha($color-accent, 0.75)
+		margin-top: (1.5*$line-height)
+		margin-bottom: (1.5*$line-height)
+		height: 0
+		+above(md)
+			margin-left: 0
+			width: 20%
 
 	li
 		margin-left: 1.1em
@@ -74,6 +82,13 @@
 			font-weight: 600
 			font-family: $font-mono
 			margin-left: -1.25rem
+
+	em
+		font-style: italic;
+		letter-spacing: -0.25px
+
+	p > code[class*='language-']
+		padding: 0.15em 0.35em !important
 
 	ul
 		margin-top: 0
