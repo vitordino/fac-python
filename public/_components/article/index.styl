@@ -22,7 +22,6 @@
 	h1+h2, h1+h3, h2+h1, h2+h3, h3+h1, h3+h2
 		margin-top: $line-height
 
-
 	h1
 		font-size: 1.5rem
 		hyphens: none
@@ -58,8 +57,10 @@
 	blockquote
 		hyphens: none
 		border-left: 3px solid alpha($color-accent, 0.75)
-		font-size: 1.1em
+		font-size: 1.25em
 		padding: 1rem 0 1rem 1.25rem
+		+above(lg)
+			margin-left: -1.25em
 
 
 	li
