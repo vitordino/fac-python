@@ -8,7 +8,7 @@ mixin article-list__title({module, number, title})
 
 mixin article-list(meta)
 	-
-		const getNumber = fp.flow([parseInt, fp.padCharsStart('0', 2)])
+		const getNumber = fp.flow([fp.parseInt(10), fp.padCharsStart('0', 2)])
 		const getNumbersFromLink = fp.flow([
 			fp.split('/'),
 			fp.map(getNumber),
