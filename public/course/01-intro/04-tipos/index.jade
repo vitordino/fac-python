@@ -1,0 +1,72 @@
+//---
+	title           Tipos de dados
+	---
+
+include /_components/article-components/index
+
+//----------------------------------------------
+//- INICIO DO DOCUMENTO
+//----------------------------------------------
+
+:markdown
+	# O que são os Tipos de Dados
+
+	Tipos de Dados, ou *Data Types* são categorias que as linguagens encaixam os
+	dados que podem ser tratados nela, assim como sabemos mentalmente a
+	diferença entre um número e uma palavra.
+
+
+	# Bacana, mas por que é importante saber eles?
+
+	Por que, a partir de agora, você já é capaz de fazer alguns exercícios e, como
+	é normal ao aprender qualquer coisa nova, você encontrará dificuldades. E, no
+	início, ±80% dos problemas serão relacionados aos *data types*
+
+
+	# Ok, quais são?
+
+	O python3 possui **13 *data-types* ** padrões porém, em prol da didática,
+	neste início de curso, utilizaremos apenas **4**:
+
+	1. `int`: números inteiros
+	2. `float`: [*praticamente* números decimais*](https://docs.python.org/3/tutorial/floatingpoint.html#representation-error)
+	3. `boolean`: valores *boleanos* nativos (*true* e *false*)
+	4. `string`: sequência de caracteres (palavras, frases, etc)
+
+
+	# Qual tipo de erro pode acontecer?
+
+	É bem comum esperarmos que o computador entenda a operação que queremos fazer
+	porém ele lida apenas com *exatidão* e não com *intenção*:
+
+		20 + 20           # entrada
+		40                # resultado
+
+		'20' + '20'       # entrada
+		'2020'            # resultado
+
+		'20' + 20         # entrada
+		ERROR             # não pode somar diferentes tipos
+
+		'palavra' + 20    # entrada
+		ERROR             # não pode somar diferentes tipos
+
+	Neste exemplo é muito claro que ele soma os números de forma numérica, mas
+	soma os números entre aspas como palávras. Isto por que, ele identifica
+	automáticamente números (`int`s e `float`s), e trata o que está dentro de
+	aspas como strings (`str`s). E não é possivel somar tipos diferentes.
+
+
+	# Como solucioná-los
+
+	Temos as funções `int()`, `float()`, `bool()` e `str()` que convertem o que há
+	entre os parenteses, para o tipo determinado pela função. Por exemplo:
+
+		'20' + str(20)         # entrada
+		'2020'                 # resultado
+
+		20 + int('20')         # entrada
+		40                     # resultado
+
+		'palavra' + str(20)    # entrada
+		'palavra20'            # resultado
