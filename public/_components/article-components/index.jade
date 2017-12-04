@@ -10,3 +10,8 @@ mixin code({language="python"}={})
 	pre(class=`language-${language}`)
 		code
 			block
+
+mixin uri(id)
+	a.uri(href='https://www.urionlinejudge.com.br/judge/en/problems/view/#{id}')
+		i(data-feather='paperclip')
+		span= id
