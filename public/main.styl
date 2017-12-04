@@ -20,6 +20,10 @@ body
 	background-color: $color-body
 	font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 0, 'tnum' 1, 'onum' 0, 'lnum' 1, 'dlig' 1, 'zero' 1, 'ss01' 1, 'case' 1
 	hyphens: auto
+	+above(md)
+		min-height: 100vh
+		display: flex;
+		flex-direction: column;
 
 a
 	text-decoration: none
@@ -39,6 +43,7 @@ main
 	padding-top: 5rem
 	padding-bottom: 4rem
 	+above(md)
+		flex: 1
 		padding-top: 0
 	.home &
 		padding-top: 0
