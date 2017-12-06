@@ -1,0 +1,70 @@
+//---
+	title           Loops: Break, Continue e Pass
+	---
+
+include /_components/article-components/index
+
+//----------------------------------------------
+//- INICIO DO DOCUMENTO
+//----------------------------------------------
+
+:markdown
+	## Break
+
+	A declaração `break` para o loop e sai dele, mesmo que a sua condição ainda
+	não tenha sido satisfeita. É comum utilizá-la após um if, dentro do loop.
+
+		numero = 0                              # iniciamos com numero 0
+
+		for numero in range(8):                 # [loop] até o numero ser 7
+		  numero = numero + 1                   #      | adiciona 1 ao numero
+
+		  if numero == 5:                       #      | [se] numero for igual a 5
+		    break                               #           | sai do loop
+
+		  print('O número é ' + str(numero))    # imprime qual é o numero
+
+		print('Você saiu do loop')              # informa que saimos do loop
+
+		# saída:
+
+		# O número é 0
+		# O número é 1
+		# O número é 2
+		# O número é 3
+		# O número é 4
+		# Você saiu do loop
+
+
+	## Continue e Pass
+
+	Diferente do `break`, o `continue` e o `pass` vão continuar o *loop* mesmo se,
+	o if acima dele for verdadeiro. O `continue` irá para a próxima iteração
+
+		for numero in [0,1,2]:
+			if numero == 1:
+				print('continue executado')
+				continue
+			print(numero)
+
+		# saída:
+
+		# 0
+		# continue executado
+		# 2
+
+
+	enquanto o `pass` irá continuar o ciclo do *loop*
+
+		for numero in [0,1,2]:
+			if numero == 1:
+				print('pass executado')
+				pass
+			print(numero)
+
+		# saída:
+
+		# 0
+		# 1
+		# pass executado
+		# 2

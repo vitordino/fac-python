@@ -1,0 +1,87 @@
+//---
+	title           Condicionais
+	---
+
+include /_components/article-components/index
+
+//----------------------------------------------
+//- INICIO DO DOCUMENTO
+//----------------------------------------------
+
+:markdown
+	# Se **X**, então **Y**
+
+	nesta seção, aprenderemos a fazer controles de fluxos, ou operações
+	condicionais, isto é, executar um	código, **se** *alguma coisa*
+	for verdadeira.
+
+	Para este primeiro passo, utilizaremos o `if`
+
+		# atribui a variável X a um inteiro dado pelo input
+		X = int(input('digite um número'))
+
+		if(X % 2 == 0):                 # se X for divisível por 2
+		  print(X,'é um numero par')    # imprime X é um numero par
+
+
+	e agora, se quisermos algo que não é contemplado pela expressão dentro do `if`
+	se utiliza o `else`
+
+		# atribui a variável X a um inteiro dado pelo input
+		X = int(input('digite um número inteiro'))
+
+		if(X % 2 == 0):                   # se X for divisível por 2
+		  print(X,'é um numero par')      # imprime X é um numero par
+
+		else:                             # se a condição não foi contemplada
+		  print(X,'é um numero ímpar')    # imprime X é um numero ímpar
+
+
+	Ok, mas e se eu quiser outra condicional? algo que não satisfaça a primeira
+	mas também impeça o `else` rodar seu conteúdo? utilizamos o `elif` —
+	abreviação para *else if*, algo como *ou se*.
+
+		# atribui a variável X a um inteiro dado pelo input
+		X = int(input('digite um número inteiro'))
+
+		if(X > 0):                           # se X for maior que 0
+		  print(X,'é um numero positivo')    # imprime X é um numero positivo
+
+		elif(X = 0)                          # se X for igual a 0
+		  print(X,'é zero')                  # imprime X é zero
+
+		else:                                # se as condições não foram contemplada
+		  print(X,'é um numero negativo')    # imprime X é um numero negativo
+
+	Você também pode utilizar operadores lógicos como `and`, `or` e `not` nas
+	expressões que determinam o if.
+
+		# atribui as variáveis X e Y a inteiros dados pelos inputs
+		X = int(input('digite um número inteiro'))
+		Y = int(input('digite outro número inteiro'))
+
+		if((X > 0) and (Y > 0)):                    # se X e Y forem maior que 0
+		  print(X,'e',Y,'são números positivos')    # imprime X e Y são numeros positivos
+
+
+
+	inserir `if`s dentro de `if`s, para ter ainda mais específicidade nas
+	condições:
+
+		X = int(input('Qual sua idade? '))    # atribui sua idade à variável X
+
+		if X > 21:                            # se maior que 21
+		  if X > 120:                         # se maior que 120
+		    print('Que mentira!')
+		  else:                               # se maior que 21, mas não é maior que 120
+		    print('Já pagou boleto hoje?')
+		else:                                 # se não é maior que 21
+		  print('Fase trial da vida')
+
+//- img(src='if.svg')
+
+:markdown
+	### Exercícios
+
++uri(1070)
++uri(1038)

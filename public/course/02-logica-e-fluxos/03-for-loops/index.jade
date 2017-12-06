@@ -1,0 +1,104 @@
+//---
+	title           Loops com For
+	---
+
+include /_components/article-components/index
+
+//----------------------------------------------
+//- INICIO DO DOCUMENTO
+//----------------------------------------------
+
+:markdown
+	Muito semelhante ao `while`, os *loops* de `for` repete uma tarefa que se
+	encontra dentro dele, mas com uma diferença: o `for` não é booleano e sim
+	depende de um contador
+
+	Começaremos com o contador mais simples, o numérico, que vai depender de uma
+	"fileira" definida por um `range([inicio], fim [, passo])`.
+
+		for i in range(0,6)    # [loop] num raio em que i vai de 0 a 6, fazer:
+		  print(i)             #      | imprimir i
+
+		# saída:
+
+		# 0
+		# 1
+		# 2
+		# 3
+		# 4
+		# 5
+
+		# ^ o 5 é o 6º item
+
+	Também podemos aplicar a esta lógica a [data-types](/course/01-intro/04-tipos)
+	sequenciais (*list*, *string*, *tuple* ou *dictionary*), só que o contador é
+	feito pelo número de itens (ou chaves).
+
+		# lista de matérias da faculdade
+		materias = ['tecom', 'pescom', 'ot', 'comcom', 'tcc', 'topicos']
+
+		for materia in materias:    # [loop] para cada matéria na lista matérias
+		  print(materia)            #      | imprimir matéria
+
+		# saída
+
+		# tecom
+		# pescom
+		# ot
+		# comcom
+		# tcc
+		# topicos
+
+	Outra tarefa que pode ser feita pelos *loops* é a construção de *data-types*
+	sequenciais:
+
+		numeros = []                 # lista começa vazia
+
+		for i in range(0, 10, 2):    # i vai de 0 a 10, de 2 em 2
+		  numeros.append(i)          # adiciona ao final da lista o i
+
+		print(numeros)
+
+		# saída
+		# [0, 2, 4, 6, 8]            # lista contendo os números que foram adicionados
+
+
+	Pode-se também cascadear *loops*, com intuito de repetir ainda mais as ações:
+
+		num_list = [1, 2, 3]          # lista de números
+		alf_list = ['a', 'b', 'c']    # lista de letras
+
+		for numero in num_list:       # [loop] para cada número na lista num_list
+		  print(numero)               #     | imprima o número
+		  for letra in alf_list:      #     [loop] para cada letra na lista alf_list
+		    print(letra)              #          | imprima a letra
+
+		# saída
+
+		# 1
+		# a
+		# b
+		# c
+		# 2
+		# a
+		# b
+		# c
+		# 3
+		# a
+		# b
+		# c
+
+
+	Uma outra utilidade de cascadear *loops* pode ser acessar itens dentro de
+	listas de listas,
+
+		lista_de_listas = [
+		                    ['fac', 'unb', 'brasilia'],
+		                    [0, 1, 2],
+		                    [9.9, 8.8, 7.7]
+		                  ]
+
+		for lista in lista_de_listas:
+		    for item in lista:
+		        print(item)
+		    print('--------')
