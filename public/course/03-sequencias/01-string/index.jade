@@ -9,4 +9,67 @@ include /_components/article-components/index
 //----------------------------------------------
 
 :markdown
-	# Strings
+	a *string* é o `data-type` sequencial mais utilizado, ela é
+	definida entre *aspas* — simples ou duplas.
+
+	*Strings* são bastante versáteis ex:
+
+	* Palavras são *strings* (sequencias) de letras
+	* Frases são *strings* (sequencias) de palavras
+
+
+	## Funções de string
+
+	* `len(string)`: mede o comprimento de uma *string*
+
+
+			x = 'palavra'
+			y = 'frase bem mais longa que longa longa'
+
+			print(len(x))
+			print(len(y))
+
+			# saída
+
+			# 7
+			# 36
+
+
+	* pode-se acessar caracteres específicos de uma string utilizando a sintaxe `[]`
+
+			x = 'palavra'
+			y = 'frase bem mais longa que longa longa'
+
+			print(x[0])
+			print(y[1:5])
+			print(y[-1])
+
+			#saída
+
+			# p
+			# rase
+			# g
+
+	## Métodos de string
+
+	* `.join(string)` une elementos de uma string, com um separador definido
+
+			x = 'palavra'
+
+			print(' '.join(x))
+
+			# saída
+
+			# p a l a v r a
+
+	* `.split(string)` separa elementos de uma string, a partir de um separador definido
+
+			y = 'frase bem mais longa que longa longa'
+
+			print(y.split())
+
+			# saída
+
+			# ['frase' 'bem' 'mais' 'longa' 'que' 'longa'  'longa']
+
+	* `.replace(old, new)`
