@@ -1,13 +1,11 @@
 include /_imports
--const {course} = frontmatter.public
 
 main
 		article: .container: .content
 			:markdown
 				# Sobre o `fac-python`
 
-				> Este é um curso autodirigido idealizado por alunos da Faculdade de
-				Comunicação da Universidade de Brasília
+				## Este é um curso aberto e autodirigido idealizado por alunos da Faculdade de Comunicação da Universidade de Brasília
 
 				Este projeto é totalmente [open-source](http://github.com/vitordino/fac-python)
 				e estará sempre aberto para contribuições na documentação, no conteúdo,
@@ -19,7 +17,7 @@ main
 				interessados na disciplina presencial e neste curso. Tem um projeto
 				legal? Quer aparecer por aqui? Dá um alô também.
 
-				### Contribuidores
+			+site-header({title: 'Contribuidores'}).sticky
 
 			+author-card({
 										name:'Vitor Dino',
