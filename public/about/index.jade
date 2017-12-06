@@ -1,0 +1,31 @@
+include /_imports
+-const {course} = frontmatter.public
+
+main
+		article: .container: .content
+			:markdown
+				# Sobre o `fac-python`
+
+				> Este é um curso autodirigido idealizado por alunos da Faculdade de
+				Comunicação da Universidade de Brasília
+
+				Este projeto é totalmente [open-source](http://github.com/vitordino/fac-python)
+				e estará sempre aberto para contribuições na documentação, no conteúdo,
+				ou no front-end. Contribuições podem ser feitas diretamente no
+				repositório, ou enviadas por email para
+				[vitor@kunstdesign.com.br](mailto:vitor@kunstdesign.com.br)
+
+				Há um [slack](procomfac.slack.com) aberto com alunos, ex-alunos, e
+				interessados na disciplina presencial e neste curso. Tem um projeto
+				legal? Quer aparecer por aqui? Dá um alô também.
+
+				### Contribuidores
+
+			+author-card({
+										name:'Vitor Dino',
+										description:'Designer & Front-end Developer',
+										avatar:'./vitordino.jpg',
+										web:'http://vitordino.me',
+										mail: 'vitor@kunstdesign.com.br',
+										github: 'vitordino'
+										})
