@@ -1,0 +1,27 @@
+mixin author-card(author={})
+		.author-card
+			.author-anchor
+				if author.avatar
+					.avatar: img(src=author.avatar)
+				.info
+					h5.name= author.name
+					h6.description= author.description
+			.social
+				if author.web
+					a.web(href='#{author.web}'): i(data-feather='globe')
+				if author.mail
+					a.mail(href='mailto:#{author.mail}'): i(data-feather='at-sign')
+				if author.facebook
+					a.facebook(href='http://fb.com/#{author.facebook}'): i(data-feather='facebook')
+				if author.instagram
+					a.instagram(href='http://instagram.com/#{author.instagram}'): i(data-feather='instagram')
+				if author.twitter
+					a.twitter(href='http://twitter.com/#{author.twitter}'): i(data-feather='twitter')
+				if author.github
+					a.github(href='http://github.com/#{author.github}'): i(data-feather='github')
+				if author.gitlab
+					a.gitlab(href='http://gitlab.com/#{author.gitlab}'): i(data-feather='gitlab')
+				if author.codepen
+					a.codepen(href='http://codepen.io/#{author.codepen}'): i(data-feather='codepen')
+				if author.whatsapp
+					a.whatsapp(href='https://api.whatsapp.com/send?phone=#{author.whatsapp}'): i(data-feather='zap')
